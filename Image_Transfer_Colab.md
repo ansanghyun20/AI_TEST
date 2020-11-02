@@ -93,3 +93,5 @@ stylized_image = outputs[0]
 ```
 show_n([content_image, style_image, stylized_image], titles=['Original content image', 'Style image', 'Stylized image'])
 ```
+### 5번 수행결과
+![2](https://user-images.githubusercontent.com/62547169/97862482-c848d800-1d48-11eb-9760-6e2899eecd73.PNG)
