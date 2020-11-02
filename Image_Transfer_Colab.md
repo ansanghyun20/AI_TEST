@@ -1,6 +1,5 @@
 ## Image_Transfer 과제
-```
-###### 1. 
+##### 1.
 import functools
 import os
 
