@@ -1,4 +1,4 @@
-# Image_Transfer 과제
+# Image_Transfer 과제  
 ### 1. 설정
 ```
 import functools
