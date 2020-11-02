@@ -15,6 +15,7 @@ print("TF-Hub version: ", hub.__version__)
 print("Eager mode enabled: ", tf.executing_eagerly())
 print("GPU available: ", tf.test.is_gpu_available())
 ```
+### 이미지 로딩 및 시각화 기능 정의
 ```
 def crop_center(image):
   """Returns a cropped square image."""
