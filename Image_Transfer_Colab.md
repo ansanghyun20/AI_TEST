@@ -77,8 +77,8 @@ style_image = tf.nn.avg_pool(style_image, ksize=[3,3], strides=[1,1], padding='S
 show_n([content_image, style_image], ['Content image', 'Style image'])
 ```
 
-
-### <span style="color:red">3번 수행결과</span>
+<span style="color:red"></span>
+### 3번 수행결과
 ![1](https://user-images.githubusercontent.com/62547169/97862141-3214b200-1d48-11eb-9fce-5769b5dc06ae.PNG)
 
 
