@@ -76,5 +76,20 @@ style_image = load_image(style_image_url, style_img_size)
 style_image = tf.nn.avg_pool(style_image, ksize=[3,3], strides=[1,1], padding='SAME')
 show_n([content_image, style_image], ['Content image', 'Style image'])
 ```
-### 3번 
+### 3번 수행결과
 ![1](https://user-images.githubusercontent.com/62547169/97862141-3214b200-1d48-11eb-9fce-5769b5dc06ae.PNG)
+
+### 4. TF-Hub 모듈 가져 오기
+```
+hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
+hub_module = hub.load(hub_handle)
+```
+
+### 5. 이미지 스타일 화 시연
+```
+outputs = hub_module(tf.constant(content_image), tf.constant(style_image))
+stylized_image = outputs[0]
+```
+```
+show_n([content_image, style_image, stylized_image], titles=['Original content image', 'Style image', 'Stylized image'])
+```
