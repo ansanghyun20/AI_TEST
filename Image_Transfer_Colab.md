@@ -1,5 +1,5 @@
 # Image_Transfer 과제
-## 1. 설정
+### 1. 설정
 ```
 import functools
 import os
@@ -15,7 +15,7 @@ print("TF-Hub version: ", hub.__version__)
 print("Eager mode enabled: ", tf.executing_eagerly())
 print("GPU available: ", tf.test.is_gpu_available())
 ```
-### 이미지 로딩 및 시각화 기능 정의
+### 2. 이미지 로딩 및 시각화 기능 정의
 ```
 def crop_center(image):
   """Returns a cropped square image."""
@@ -54,4 +54,25 @@ def show_n(images, titles=('',)):
     plt.axis('off')
     plt.title(titles[i] if len(titles) > i else '')
   plt.show()
+```
+### 3. 이미지 예제 불러오기
+
+```
+# @title Load example images  { display-mode: "form" }
+
+content_image_url = 'https://postfiles.pstatic.net/MjAyMDExMDJfMjA3/MDAxNjA0MjgzNzg0MDg4.RekVUHTuJTD3Ht3YGhes1xvVvyILI1f5ReopVut527Eg.nu6m-RL7Pi30P1K12QoYkq3Ipjg7yIiU_fBYwr0IscUg.JPEG.ansanghyun20/1.jpg?type=w773'  # @param {type:"string"}
+style_image_url = 'https://m.damcoart.com/web/product/big/201611/1754_shop1_228308.jpg'  # @param {type:"string"}
+output_image_size = 384  # @param {type:"integer"}
+
+# The content image size can be arbitrary.
+content_img_size = (output_image_size, output_image_size)
+# The style prediction model was trained with image size 256 and it's the 
+# recommended image size for the style image (though, other sizes work as 
+# well but will lead to different results).
+style_img_size = (256, 256)  # Recommended to keep it at 256.
+
+content_image = load_image(content_image_url, content_img_size)
+style_image = load_image(style_image_url, style_img_size)
+style_image = tf.nn.avg_pool(style_image, ksize=[3,3], strides=[1,1], padding='SAME')
+show_n([content_image, style_image], ['Content image', 'Style image'])
 ```
