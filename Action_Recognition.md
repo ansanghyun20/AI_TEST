@@ -165,6 +165,8 @@ def predict(sample_video):
 ### 8. 샘플 비디오를 생성한다.
 ```
 to_gif(sample_video)
+![1](https://user-images.githubusercontent.com/62547169/98071079-eb3cce80-1ea5-11eb-95b7-711f659310ce.gif)
+
 ```
 
 ### 9. 예측 결과를 확인한다.
