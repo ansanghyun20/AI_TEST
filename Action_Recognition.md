@@ -33,35 +33,7 @@ from IPython import display
 from urllib import request  # requires python3
 ```
 
-### 3. 필요한 모듈을 import한다.
-```
-#@title Import the necessary modules
-# TensorFlow and TF-Hub modules.
-from absl import logging
-
-import tensorflow as tf
-import tensorflow_hub as hub
-from tensorflow_docs.vis import embed
-
-logging.set_verbosity(logging.ERROR)
-
-# Some modules to help with reading the UCF101 dataset.
-import random
-import re
-import os
-import tempfile
-import ssl
-import cv2
-import numpy as np
-
-# Some modules to display an animation using imageio.
-import imageio
-from IPython import display
-
-from urllib import request  # requires python3
-```
-
-### 4. UCF101 dataset에 대한 도우미 함수
+### 3. UCF101 dataset에 대한 도우미 함수
 ```
 #@title Helper functions for the UCF101 dataset
 
@@ -124,7 +96,7 @@ def to_gif(images):
   imageio.mimsave('./animation.gif', converted_images, fps=25)
   return embed.embed_file('./animation.gif')
 ```
-### 5. GitHub 저장소에서 kinetics-400 작업 레이블을 가져온다.
+### 4. GitHub 저장소에서 kinetics-400 작업 레이블을 가져온다.
 ```
 # Get the kinetics-400 action labels from the GitHub repository.
 KINETICS_URL = "https://raw.githubusercontent.com/deepmind/kinetics-i3d/master/data/label_map.txt"
@@ -132,7 +104,7 @@ with request.urlopen(KINETICS_URL) as obj:
   labels = [line.decode("utf-8").strip() for line in obj.readlines()]
 print("Found %d labels." % len(labels))
 ```
-### 6. 비디오 경로를 작성한다.
+### 5. 비디오 경로를 작성한다.
 ```
 !curl -O https://upload.wikimedia.org/wikipedia/commons/b/b2/2018_FIFA_U-17_Women%27s_World_Cup_-_New_Zealand_vs_Canada_-_21.webm
 ```
@@ -145,7 +117,7 @@ sample_video.shape
 ```
 
 
-### 7. id3 모델을 실행하고 상위 5개 예측을 출력한다.
+### 6. id3 모델을 실행하고 상위 5개 예측을 출력한다.
 ```
 i3d = hub.load("https://tfhub.dev/deepmind/i3d-kinetics-400/1").signatures['default']
 ```
@@ -162,13 +134,13 @@ def predict(sample_video):
     print(f"  {labels[i]:22}: {probabilities[i] * 100:5.2f}%")
 ```
 
-### 8. 샘플 비디오를 생성한다.
+### 7. 샘플 비디오를 생성한다.
 ```
 to_gif(sample_video)
 
 ```
 ![1](https://user-images.githubusercontent.com/62547169/98071079-eb3cce80-1ea5-11eb-95b7-711f659310ce.gif)
-### 9. 예측 결과를 확인한다.
+### 8. 예측 결과를 확인한다.
 ```
 predict(sample_video)
 ```
