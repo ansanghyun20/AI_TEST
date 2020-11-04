@@ -1,5 +1,5 @@
 # 행동인식
-### 1. 이미지 입출력, opecv-python, git+https://github.com/tensorflow/docs 을 모두 설치.
+### 1. 이미지 입출력, opecv-python, git+https://github.com/tensorflow/docs 을 모두 설치한다.
 ```
 !pip install -q imageio
 !pip install -q opencv-python
