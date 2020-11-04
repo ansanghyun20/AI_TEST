@@ -172,3 +172,12 @@ to_gif(sample_video)
 ```
 predict(sample_video)
 ```
+```
+결과:
+Top 5 actions:
+  shooting goal (soccer): 68.42%
+  throwing discus       : 14.48%
+  javelin throw         :  6.90%
+  hammer throw          :  3.88%
+  playing tennis        :  2.05%
+  ```
